@@ -14,6 +14,7 @@
     echo "Connected successfully";
 
     //create a database
+
     // $sql = "CREATE DATABASE myDB";
     // If($conn->query($sql)=== TRUE){
     //     echo "Database create successfully";
@@ -21,18 +22,26 @@
     //     echo "Error creating database: " .$conn->error;
     // }
 
-    $sql = "CREATE TABLE myGuests(
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        firstname VARCHAR(30) NOT NULL,
-        lastname VARCHAR(30) NOT NULL,
-        email VARCHAR(50),
-        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    )";
+    //creating a table
+
+    // $sql = "CREATE TABLE myGuests(
+    //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    //     firstname VARCHAR(30) NOT NULL,
+    //     lastname VARCHAR(30) NOT NULL,
+    //     email VARCHAR(50),
+    //     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    // )";
+
+    //inserting data into a table
+    $sql = "INSERT INTO myGuests (firstname, lastname, email)
+    VALUES('John', 'Doe', 'john@example.com')";
+
+
 
     If($conn->query($sql) === TRUE){
-        echo "Table create successfully";
+        echo "New record created successfully";
     }else{
-        echo "Error creating table: " .$conn->error;
+        echo "Error: ".$sql ."<br>".$conn->error;
     }
 
     $conn->close();
