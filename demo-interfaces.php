@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html>
-<body>
+    <body>
+        <?php
+            // Interface definition
+            interface Animal {
+            public function makeSound();
+            }
 
-<?php
-// Interface definition
-interface Animal {
-  public function makeSound();
-}
+            // Class definitions
+            class Cat implements Animal {
+            public function makeSound() {
+                echo " Meow ";
+            }
+            }
 
-// Class definitions
-class Cat implements Animal {
-  public function makeSound() {
-    echo " Meow ";
-  }
-}
+            class Dog implements Animal {
+            public function makeSound() {
+                echo " Bark ";
+            }
+            }
 
-class Dog implements Animal {
-  public function makeSound() {
-    echo " Bark ";
-  }
-}
+            class Mouse implements Animal {
+            public function makeSound() {
+                echo " Squeak ";
+            }
+            }
 
-class Mouse implements Animal {
-  public function makeSound() {
-    echo " Squeak ";
-  }
-}
+            // Create a list of animals
+            $cat = new Cat();
+            $dog = new Dog();
+            $mouse = new Mouse();
+            $animals = array($cat, $dog, $mouse);
 
-// Create a list of animals
-$cat = new Cat();
-$dog = new Dog();
-$mouse = new Mouse();
-$animals = array($cat, $dog, $mouse);
-
-// Tell the animals to make a sound
-foreach($animals as $animal) {
-  $animal->makeSound();
-}
-?>
- 
-</body>
+            // Tell the animals to make a sound
+            foreach($animals as $animal) {
+            $animal->makeSound();
+            }
+        ?>
+    </body>
 </html>
