@@ -39,7 +39,8 @@
 
 
     If($conn->query($sql) === TRUE){
-        echo "New record created successfully";
+        $last_id = $conn->insert_id;
+        echo "New record created successfully.Last inserted ID is:" .$last_id;
     }else{
         echo "Error: ".$sql ."<br>".$conn->error;
     }
